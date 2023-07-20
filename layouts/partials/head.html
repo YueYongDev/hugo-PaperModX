@@ -83,7 +83,7 @@
 {{- end -}}
 
 {{- /* https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started */}}
-{{- if .Params.cover.image }}
+{{- if .Params.cover }}
   <meta name="twitter:card" content="summary_large_image" />
 {{- else }}
   {{- with site.Params.images -}}
