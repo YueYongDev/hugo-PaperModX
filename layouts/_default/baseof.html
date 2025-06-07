@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ .Params.language | default .Language.Lang }}" dir="{{ .Language.LanguageDirection | default "auto" }}">
+<html lang="{{ .Params.language | default .Language.Lang }}" dir="{{ .Language.LanguageDirection | default " auto" }}">
 
 <head>
     {{- partial "head.html" . }}
@@ -8,12 +8,8 @@
 
 <body class="
 {{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) -}}
-{{- print "list-page" -}}
-{{- end -}}
-{{- if eq site.Params.defaultTheme `dark` -}}
-{{- print " dark" }}
-{{- end }} type-{{ .Type }} kind-{{ .Kind }} layout-{{ .Layout -}}
-" id="top">
+{{- print " list-page" -}} {{- end -}} {{- if eq site.Params.defaultTheme `dark` -}} {{- print " dark" }} {{- end }}
+    type-{{ .Type }} kind-{{ .Kind }} layout-{{ .Layout -}} " id=" top">
     {{- partialCached "header.html" . .Page -}}
 
     <main class="main {{- if (eq .Kind `page`) -}}{{- print " post" -}}{{- end -}}">
@@ -25,13 +21,22 @@
 
     <!-- Vercel Speed Insights -->
     <script>
-      (function() {
-        var e = document.createElement("script");
-        e.src = "https://speed-insights.vercel.app/script.js";
-        e.defer = true;
-        document.head.appendChild(e);
-      })();
+        window.si =
+            window.si ||
+            function () {
+                (window.siq = window.siq || []).push(arguments);
+            };
     </script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+    <script>
+        window.va =
+            window.va ||
+            function () {
+                (window.vaq = window.vaq || []).push(arguments);
+            };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+
 </body>
 
 </html>
