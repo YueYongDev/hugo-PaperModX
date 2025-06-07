@@ -3,7 +3,9 @@
     {{- $url := replace .Parent.Permalink (printf "%s" site.BaseURL) "" }}
     {{- $lang_url := strings.TrimPrefix (printf "%s/" .Lang) $url -}}
 
+    {{- if ne .Section "translation" }}
     <a href="{{ "" | absURL }}">{{ i18n "home" | default "Home" }}</a>
+    {{- end }}
     {{- $scratch := newScratch }}
     {{- range $index, $element := split $lang_url "/" }}
 
