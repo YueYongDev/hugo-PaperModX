@@ -15,11 +15,23 @@
 {{- end }} type-{{ .Type }} kind-{{ .Kind }} layout-{{ .Layout -}}
 " id="top">
     {{- partialCached "header.html" . .Page -}}
+
     <main class="main {{- if (eq .Kind `page`) -}}{{- print " post" -}}{{- end -}}">
         {{- block "main" . }}{{ end }}
     </main>
+
     {{ partial "footer.html" . -}}
     {{- block "body_end" . }}{{ end }}
+
+    <!-- Vercel Speed Insights -->
+    <script>
+      (function() {
+        var e = document.createElement("script");
+        e.src = "https://speed-insights.vercel.app/script.js";
+        e.defer = true;
+        document.head.appendChild(e);
+      })();
+    </script>
 </body>
 
 </html>
